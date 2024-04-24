@@ -20,6 +20,10 @@ s3 = boto3.client('s3',
     aws_secret_access_key = os.getenv("AWS_SECRET_ACCESS_KEY")
 )
 
+@app.route('/home', methods=['GET'])
+def process_cv_to_rate():
+ return jsonify({'success': True, 'message': 'HELLO WORLD!'})
+
 @app.route('/process_cv_to_rate', methods=['GET'])
 def process_cv_to_rate():
     cv_url = request.json.get('cv_url')
