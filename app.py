@@ -20,7 +20,7 @@ s3 = boto3.client('s3',
     aws_secret_access_key = os.getenv("AWS_SECRET_ACCESS_KEY")
 )
 
-@app.route('/home', methods=['GET'])
+@app.route('/', methods=['GET'])
 def home():
  return jsonify({'success': True, 'message': 'HELLO WORLD!'})
 
@@ -104,7 +104,3 @@ def process_pdf():
         return jsonify({'success': True, 'message': 'Processing completed successfully!', 'url': object_url})
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)}), 500
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
