@@ -1,5 +1,5 @@
 {
-    "version":2,
+    "version":3,
     "builds": [
         {
             "src":"./index.py",
@@ -7,6 +7,7 @@
             "config":{"runtime":"python3.8"}
         }
     ],
+    
     "routes": [
         {
             "src":"/(.*)",
