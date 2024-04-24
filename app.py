@@ -104,3 +104,7 @@ def process_pdf():
         return jsonify({'success': True, 'message': 'Processing completed successfully!', 'url': object_url})
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)}), 500
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
