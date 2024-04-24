@@ -21,7 +21,7 @@ s3 = boto3.client('s3',
 )
 
 @app.route('/home', methods=['GET'])
-def process_cv_to_rate():
+def home():
  return jsonify({'success': True, 'message': 'HELLO WORLD!'})
 
 @app.route('/process_cv_to_rate', methods=['GET'])
