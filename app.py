@@ -6,6 +6,7 @@ from resume_processor import ResumeProcessor
 from similarity import match
 from jd_processor import JobDescriptionProcessor
 from dotenv import load_dotenv
+from flask_cors import CORS
 
 # Load environment variables from .env file
 load_dotenv()
@@ -14,6 +15,7 @@ load_dotenv()
 S3_BUCKET_NAME = 'skillsift'
 
 app = Flask(__name__)
+CORS(app) 
 
 s3 = boto3.client('s3', 
     aws_access_key_id =  os.getenv("AWS_ACCESS_KEY_ID"),
@@ -104,3 +106,6 @@ def process_pdf():
         return jsonify({'success': True, 'message': 'Processing completed successfully!', 'url': object_url})
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)}), 500
+    
+if __name__ == '__main__':
+    app.run(debug=True)
